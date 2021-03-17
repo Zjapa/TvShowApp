@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  background-color: #343a40;
+}
+
+header .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .container .logo {
+  color: #ffff;
+  padding: 15px 0;
+  font-size: 1.1em;
+}
+
+header .container .srch {
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+}
+
+main .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main .container h1 {
+  padding: 15px 0;
+  text-align: center;
+}
+
+main .container .show-list {
+  margin: 0 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main .container .show-list .show-container {
+  width: 360px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 100px;
+}
+
+main .container .show-list .show-container img {
+  width: 100%;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .container .show-list .show-container h2 {
+  color: #4e9fff;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+footer {
+  display: none;
+  background-color: #343a40;
+  height: 100px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer p {
+  color: #ffff;
+}
+/*# sourceMappingURL=landing.css.map */
