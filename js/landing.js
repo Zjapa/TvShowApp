@@ -1,9 +1,11 @@
 const searchInput = document.querySelector(".srch");
 const showList = document.querySelector(".show-list");
 const footer = document.querySelector("footer");
+const dropdown = document.querySelector(".dropdown");
 
 const rootUrl = "http://api.tvmaze.com";
 const allShowsUrl = "/shows";
+const searchShowUrl = "/search/shows?q=";
 
 onLoad();
 
@@ -13,6 +15,7 @@ function onLoad() {
   setTimeout(() => {
     footer.style.display = "flex";
   }, 1000);
+  dropdown.style.display = "none";
 
   // MAKING NEW REQUEST
   const req = new XMLHttpRequest();
@@ -35,7 +38,6 @@ function listShows(tvShows) {
 }
 
 function createShow(show) {
-  console.log(show);
   const showDiv = document.createElement("div");
   const showImg = document.createElement("img");
   const showTitle = document.createElement("h2");
@@ -53,4 +55,29 @@ function createShow(show) {
 
 function addToShowList(createdShow) {
   showList.appendChild(createdShow);
+}
+
+searchInput.addEventListener("keydown", onSearch);
+
+function onSearch() {
+  searchInput.value === ""
+    ? (dropdown.style.display = "none")
+    : (dropdown.style.display = "block");
+
+  dropdown.innerHTML = "";
+  const req = new XMLHttpRequest();
+
+  req.open("GET", rootUrl + searchShowUrl + searchInput.value);
+  req.send();
+  req.onload = () => getShow(JSON.parse(req.responseText));
+}
+
+function getShow(tvShows) {
+  tvShows.forEach((show) => {
+    console.log(show);
+    const li = document.createElement("li");
+    li.textContent = `${show.show.name}`;
+
+    dropdown.appendChild(li);
+  });
 }
