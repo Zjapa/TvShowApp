@@ -66,7 +66,9 @@ body {
 main .container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; }
   main .container h1 {
     padding: 30px 0;
     text-align: center; }
@@ -93,10 +95,26 @@ main .container {
         object-fit: cover; }
       main .container .show-list .show-container h2 {
         color: #4e9fff;
-        padding: 10px 0px 20px 0px;
+        padding: 10px 10px 20px 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap; }
+
+button {
+  padding: 20px 0px;
+  text-align: center;
+  align-self: center;
+  width: 50px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.349);
+  margin-bottom: 50px;
+  transition: background-color .2s; }
+  button:hover {
+    background-color: grey;
+    color: #ffff; }
 
 /*# sourceMappingURL=landing.css.map */

@@ -2,6 +2,7 @@ const searchInput = document.querySelector(".srch");
 const showList = document.querySelector(".show-list");
 const footer = document.querySelector("footer");
 const dropdown = document.querySelector(".dropdown");
+const loadMore = document.querySelector(".loadMore");
 
 
 const rootUrl = "http://api.tvmaze.com";
@@ -32,10 +33,22 @@ function onLoad() {
 
 //GETTING ONE SHOW FROM LISTS OF TV SHOWS NAD SENDING TO CREATE FUNCTION
 function listShows(tvShows) {
-  //GET TOP 50 TV SHOWS
-  for (let i = 0; i <= 50; i++) {
-    createShow(tvShows[i]);
+  //GET TOP 7 TV SHOWS
+  let limit = 7;
+  let start = 0;
+  for (start; start <= limit; start++) {
+    createShow(tvShows[start]);
   }
+  //ON EVERY CLICK LOAD 8 MORE SHOWS
+  loadMore.addEventListener('click', () => {
+    limit += 8;
+    for (start; start <= limit; start++) {
+      createShow(tvShows[start]);
+    }
+
+  })
+
+
 }
 
 
@@ -50,12 +63,12 @@ function createShow(show) {
   showTitle.innerText = `${show.name}`;
 
   showDiv.classList.add("show-container");
-  
- showDiv.addEventListener('click',()=>{
-   window.open('../html/showPage.html',"_self");
-   localStorage.setItem("id",show.id);
-   
- })
+
+  showDiv.addEventListener('click', () => {
+    window.open('../html/showPage.html', "_self");
+    localStorage.setItem("id", show.id);
+
+  })
 
   showDiv.appendChild(showImg);
   showDiv.appendChild(showTitle);
@@ -86,20 +99,20 @@ function onSearch() {
 }
 
 function getShow(tvShows) {
-  if(!tvShows.length){
+  if (!tvShows.length) {
     dropdown.style.display = "none";
   }
 
   console.log(tvShows);
   tvShows.forEach((show) => {
-    
+
     const li = document.createElement("li");
     li.textContent = `${show.show.name}`;
-    li.addEventListener('click',()=>{
-      window.open('../html/showPage.html',"_self");
-      localStorage.setItem("id",show.show.id);
+    li.addEventListener('click', () => {
+      window.open('../html/showPage.html', "_self");
+      localStorage.setItem("id", show.show.id);
     })
-    
+
 
     dropdown.appendChild(li);
   });

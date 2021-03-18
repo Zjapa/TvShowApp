@@ -19,6 +19,9 @@ body {
 main {
   .container {
     @include containerWidth();
+    display: flex;
+    flex-direction: column;
+    
    
     h1 {
       padding: 30px 0;
@@ -55,7 +58,7 @@ main {
         h2 {
         
           color: $text;
-          padding: 10px 0px 20px 0px;
+          padding: 10px 10px 20px 10px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -63,6 +66,25 @@ main {
         }
       }
     }
+  }
+}
+
+button{
+  padding: 20px 0px;
+  text-align: center;
+  align-self: center;
+  width: 50px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.349);
+  margin-bottom: 50px;
+  transition: background-color .2s;
+
+  &:hover{
+    background-color: grey;
+    color: #ffff;
   }
 }
 

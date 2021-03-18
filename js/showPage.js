@@ -47,6 +47,7 @@ function onSearch() {
     req.send();
     req.onload = () => allShows(JSON.parse(req.responseText));
 }
+
 function allShows(tvShows) {
     tvShows.forEach((show) => {
 
@@ -98,6 +99,7 @@ function getDate(season) {
 
     const premiereDate = season.premiereDate
     const endDate = season.endDate;
+    
     createSeasonDate(premiereDate, endDate);
 }
 
