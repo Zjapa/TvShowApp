@@ -1,0 +1,78 @@
+@import "mixins";
+@import "_headerFooter";
+
+// CSS RESET
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//PAGE FULL HEIGHT
+html,
+body {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: #eeeeee;
+}
+
+//VARIABLES
+
+
+//HEADER STYLING
+
+
+
+//MAIN STYLING
+main {
+  .container {
+    @include containerWidth();
+
+    h1 {
+      padding: 30px 0;
+      text-align: center;
+    }
+  }
+}
+
+
+
+
+.show-image img {
+  width: 650px;
+  border-radius: 15px;
+  
+}
+
+
+
+.show-episodes {
+  display: flex;
+  justify-content: flex-start;
+
+  .show-image img {
+    width: 650px;
+    border-radius: 15px;
+  }
+
+  .info-container {
+    margin-left: 50px;
+
+    .date-list,
+    .cast-names {
+      padding: 20px 40px;
+    }
+  }
+}
+
+.summary {
+  margin-bottom: 50px;
+  h3 {
+    margin: 10px 0px;
+  }
+  
+}
+
+li {
+  cursor: pointer;
+}

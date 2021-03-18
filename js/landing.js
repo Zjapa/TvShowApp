@@ -3,6 +3,7 @@ const showList = document.querySelector(".show-list");
 const footer = document.querySelector("footer");
 const dropdown = document.querySelector(".dropdown");
 
+
 const rootUrl = "http://api.tvmaze.com";
 const allShowsUrl = "/shows";
 const searchShowUrl = "/search/shows?q=";
@@ -37,7 +38,10 @@ function listShows(tvShows) {
   }
 }
 
+
+//CREATING SHOW CARD
 function createShow(show) {
+
   const showDiv = document.createElement("div");
   const showImg = document.createElement("img");
   const showTitle = document.createElement("h2");
@@ -46,6 +50,12 @@ function createShow(show) {
   showTitle.innerText = `${show.name}`;
 
   showDiv.classList.add("show-container");
+  
+ showDiv.addEventListener('click',()=>{
+   window.open('../html/showPage.html',"_self");
+   localStorage.setItem("id",show.id);
+   
+ })
 
   showDiv.appendChild(showImg);
   showDiv.appendChild(showTitle);
@@ -53,11 +63,14 @@ function createShow(show) {
   addToShowList(showDiv);
 }
 
+//ADDING CAR TO LIST
 function addToShowList(createdShow) {
   showList.appendChild(createdShow);
 }
 
-searchInput.addEventListener("keydown", onSearch);
+
+//HEADER SEARCH
+searchInput.addEventListener("keyup", onSearch);
 
 function onSearch() {
   searchInput.value === ""
@@ -73,10 +86,20 @@ function onSearch() {
 }
 
 function getShow(tvShows) {
+  if(!tvShows.length){
+    dropdown.style.display = "none";
+  }
+
+  console.log(tvShows);
   tvShows.forEach((show) => {
-    console.log(show);
+    
     const li = document.createElement("li");
     li.textContent = `${show.show.name}`;
+    li.addEventListener('click',()=>{
+      window.open('../html/showPage.html',"_self");
+      localStorage.setItem("id",show.show.id);
+    })
+    
 
     dropdown.appendChild(li);
   });

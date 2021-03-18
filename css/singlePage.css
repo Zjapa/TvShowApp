@@ -70,33 +70,29 @@ main .container {
   main .container h1 {
     padding: 30px 0;
     text-align: center; }
-  main .container .show-list {
-    margin: 0px 0px 20px 0px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; }
-    main .container .show-list .show-container {
-      background-color: #ffff;
-      width: 280px;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      margin-bottom: 100px;
-      border-radius: 25px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.247);
-      transition: transform .2s; }
-      main .container .show-list .show-container:hover {
-        transform: scale(1.1); }
-      main .container .show-list .show-container img {
-        width: 100%;
-        height: 400px;
-        object-fit: cover; }
-      main .container .show-list .show-container h2 {
-        color: #4e9fff;
-        padding: 10px 0px 20px 0px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap; }
 
-/*# sourceMappingURL=landing.css.map */
+.show-image img {
+  width: 650px;
+  border-radius: 15px; }
+
+.show-episodes {
+  display: flex;
+  justify-content: flex-start; }
+  .show-episodes .show-image img {
+    width: 650px;
+    border-radius: 15px; }
+  .show-episodes .info-container {
+    margin-left: 50px; }
+    .show-episodes .info-container .date-list,
+    .show-episodes .info-container .cast-names {
+      padding: 20px 40px; }
+
+.summary {
+  margin-bottom: 50px; }
+  .summary h3 {
+    margin: 10px 0px; }
+
+li {
+  cursor: pointer; }
+
+/*# sourceMappingURL=singlePage.css.map */
