@@ -103,7 +103,7 @@ function getShow(tvShows) {
     dropdown.style.display = "none";
   }
 
-  console.log(tvShows);
+ 
   tvShows.forEach((show) => {
 
     const li = document.createElement("li");

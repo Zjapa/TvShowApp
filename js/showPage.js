@@ -20,12 +20,12 @@ const seasons = '/seasons'
 const cast = '/cast';
 
 
-window.onload = () =>{
+window.onload = () => {
     dropdown.style.display = "none";
     footer.style.display = "none";
-    setTimeout(()=>{
+    setTimeout(() => {
         footer.style.display = "flex";
-    },200)
+    }, 200)
 }
 
 
@@ -45,10 +45,15 @@ function onSearch() {
 
     req.open("GET", rootUrl + searchShowUrl + searchInput.value);
     req.send();
-    req.onload = () => allShows(JSON.parse(req.responseText));
+    req.onload = () => getShow(JSON.parse(req.responseText));
 }
 
-function allShows(tvShows) {
+function getShow(tvShows) {
+
+    if (!tvShows.length) {
+        dropdown.style.display = "none";
+    }
+
     tvShows.forEach((show) => {
 
         const li = document.createElement("li");
@@ -99,7 +104,7 @@ function getDate(season) {
 
     const premiereDate = season.premiereDate
     const endDate = season.endDate;
-    
+
     createSeasonDate(premiereDate, endDate);
 }
 
@@ -114,12 +119,12 @@ function createSeasonDate(preDate, endDate) {
 //GET SHOW CAST
 function getShowCast(showCast) {
     for (let i = 0; i < 5; i++) {
-        if(showCast[i]){
+        if (showCast[i]) {
             createCast(showCast[i]);
-        }else{
+        } else {
             continue;
         }
-        
+
     }
 }
 
